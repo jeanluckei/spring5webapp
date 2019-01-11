@@ -9,13 +9,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 @Getter
 @Setter
@@ -25,17 +22,15 @@ import javax.persistence.ManyToMany;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
-public class Author {
+public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NonNull
-    private String firstName;
-    @NonNull
-    private String lastName;
 
-    @ManyToMany(mappedBy = "authors")
-    private Set<Book> books = new HashSet<>();
+    @NonNull
+    private String name;
 
+    @NonNull
+    private String address;
 }
